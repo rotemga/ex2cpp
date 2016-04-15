@@ -3,9 +3,6 @@
 
 
 Simulator::Simulator(vector <House*> houses1, vector <AbstractAlgorithm*> algos1) 
-//config({ { "MaxSteps", 1200 }, { "MaxStepsAfterWinner", 200 }, {
-//	"BatteryCapacity", 400 }, { "BatterConsumptionRate", 1 }, {
-//		"BatteryRachargeRate", 20 } })
 {
 	houses = houses1;
 	algorithms = algos1;
@@ -81,7 +78,7 @@ void Simulator::run(vector<string> houseNames) {
 	Point* point = new Point(-1, -1);
 	
 	for (vector<House*>::size_type i = 0; i != houses.size(); i++) {
-		int Steps = config.at("MaxSteps"), pos_in_competition = 1, actual_position_in_copmetition = 1;
+		int Steps = houses[i]->getmaxSteps() , pos_in_competition = 1, actual_position_in_copmetition = 1;
 		int simulation_steps = 0, winner_num_steps = 0, num_of_wins_this_iter = 0;
 		houses[i]->findDockingStation(*point);
 		for (vector<AbstractAlgorithm*>::size_type j = 0; j != algorithms.size(); j++){

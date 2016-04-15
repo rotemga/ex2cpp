@@ -108,6 +108,11 @@ string House::fillHouseData(string& filename) {
 	string input;
 	std::getline(fin, input);
 	if (!isInteger(input)) {
+		return "line number 3 in house file shall be posotive number, found: " + input;
+	}
+	maxSteps = stoi(input);
+	std::getline(fin, input);
+	if (!isInteger(input)) {
 		return "line number 3 in house file shall be a positive number, found: " + input;
 	}
 	R = stoi(input);
